@@ -2,7 +2,6 @@
 
 namespace Klsandbox\BonusModel\Services;
 
-use App;
 use Klsandbox\OrderModel\Models\Order;
 use Carbon\Carbon;
 

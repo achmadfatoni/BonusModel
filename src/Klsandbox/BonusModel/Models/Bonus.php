@@ -3,8 +3,6 @@
 namespace Klsandbox\BonusModel\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Log;
-use App;
 use Carbon\Carbon;
 
 /**
@@ -49,55 +47,31 @@ class Bonus extends Model
 
     use \Klsandbox\SiteModel\SiteExtensions;
 
-    public static function boot()
-    {
-        parent::boot();
-
-        Bonus::created(function (Bonus $bonus) {
-            $payout = $bonus->bonusPayout ? " payout:{$bonus->bonusPayout->key}" : "";
-            Log::info("created\t#bonus:$bonus->id order:{$bonus->order->id} user:{$bonus->user->id} type:{$bonus->bonusType->key}$payout");
-
-            if ($bonus->bonusPayout && !$bonus->bonusPayout->getAttribute('hidden')) {
-                if ($bonus->bonusPayout->currency_amount == 0) {
-                    App::abort(500, 'bad currency amount');
-                }
-
-                NotificationRequest::create(['target_id' => $bonus->id, 'route' => 'new-bonus-admin', 'channel' => 'Sms', 'to_user_id' => User::admin()->id]);
-                NotificationRequest::create(['target_id' => $bonus->id, 'route' => 'new-bonus-user', 'channel' => 'Sms', 'to_user_id' => $bonus->awarded_to_user_id]);
-                User::createUserEvent($bonus->user, ['created_at' => $bonus->created_at, 'controller' => 'timeline', 'route' => '/bonus-awarded', 'target_id' => $bonus->id]);
-            }
-        });
-
-        Bonus::creating(function (Bonus $bonus) {
-            $bonus->bonus_status_id = BonusStatus::Active()->id;
-        });
-    }
-
     protected $fillable = ['created_at', 'updated_at', 'workflow_status', 'bonus_payout_id', 'bonus_type_id', 'awarded_by_user_id', 'awarded_to_user_id', 'order_id', 'parent_bonus_id'];
 
     public function bonusPayout()
     {
-        return $this->belongsTo('Klsandbox\BonusModel\Models\BonusPayout');
+        return $this->belongsTo(BonusPayout::class);
     }
 
     public function bonusType()
     {
-        return $this->belongsTo('Klsandbox\BonusModel\Models\BonusType');
+        return $this->belongsTo(BonusType::class);
     }
 
     public function order()
     {
-        return $this->belongsTo('App\Models\Order');
+        return $this->belongsTo(\Klsandbox\OrderModel\Models\Order::class);
     }
 
     public function parentBonus()
     {
-        return $this->belongsTo('Klsandbox\BonusModel\Models\Bonus', 'parent_bonus_id');
+        return $this->belongsTo(self::class, 'parent_bonus_id');
     }
 
     public function bonusStatus()
     {
-        return $this->belongsTo('Klsandbox\BonusModel\Models\BonusStatus');
+        return $this->belongsTo(BonusStatus::class);
     }
 
     public function user()
@@ -107,7 +81,7 @@ class Bonus extends Model
 
     public function childBonuses()
     {
-        return $this->hasMany('Klsandbox\BonusModel\Models\Bonus', 'parent_bonus_id');
+        return $this->hasMany(self::class, 'parent_bonus_id');
     }
 
     public function cancelBonusAndChildBonuses()

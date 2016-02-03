@@ -37,7 +37,7 @@ class BonusPayout extends Model
 
     public function bonusCurrency()
     {
-        return $this->belongsTo('App\Models\BonusCurrency');
+        return $this->belongsTo(BonusCurrency::class);
     }
 
     public static function IntroducerBonusPayoutGoldOption()

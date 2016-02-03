@@ -30,12 +30,12 @@ class BonusTypeBonusPayoutOption extends Model
 
     public function bonusPayout()
     {
-        return $this->belongsTo('App\Models\BonusPayout', 'payout_id');
+        return $this->belongsTo(BonusPayout::class, 'payout_id');
     }
 
     public function bonusType()
     {
-        return $this->belongsTo('App\Models\BonusType', 'type_id');
+        return $this->belongsTo(BonusType::class, 'type_id');
     }
 
 }

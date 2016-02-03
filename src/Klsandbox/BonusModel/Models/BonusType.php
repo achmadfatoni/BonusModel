@@ -44,7 +44,7 @@ class BonusType extends Model
 
     public function bonusTypeBonusPayoutOptions()
     {
-        return $this->hasMany('Klsandbox\BonusModel\Models\BonusTypeBonusPayoutOption', 'type_id');
+        return $this->hasMany(BonusTypeBonusPayoutOption::class, 'type_id');
     }
 
 }
