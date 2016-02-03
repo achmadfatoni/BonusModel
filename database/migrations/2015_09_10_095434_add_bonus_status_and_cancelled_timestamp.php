@@ -13,7 +13,7 @@ class AddBonusStatusAndCancelledTimestamp extends Migration {
 	public function up()
 	{
 		
-		Artisan::call('db:seed', array('--class' => 'BonusStatusTableSeeder'));
+		Artisan::call('db:seed', array('--class' => Klsandbox\AddressModel\Database\Seeds\BonusStatusTableSeeder::class));
 		
 		Schema::table('bonuses', function(Blueprint $table)
 		{
@@ -22,7 +22,7 @@ class AddBonusStatusAndCancelledTimestamp extends Migration {
 		});
 		
 					
-		Artisan::call('db:seed', array('--class' => 'DefaultBonusStatusColumnSeeder'));
+		Artisan::call('db:seed', array('--class' => Klsandbox\AddressModel\Database\Seeds\DefaultBonusStatusColumnSeeder::class));
 					
 		DB::statement('ALTER TABLE bonuses MODIFY COLUMN bonus_status_id int UNSIGNED not null');
 						
