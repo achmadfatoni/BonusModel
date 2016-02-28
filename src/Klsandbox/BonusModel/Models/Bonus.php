@@ -42,7 +42,7 @@ use Carbon\Carbon;
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\Bonus whereParentBonusId($value)
  * @property-read \Klsandbox\BonusModel\Models\Bonus $parentBonus
  */
-class Bonus extends Model
+abstract class Bonus extends Model
 {
 
     use \Klsandbox\SiteModel\SiteExtensions;
@@ -66,7 +66,7 @@ class Bonus extends Model
 
     public function parentBonus()
     {
-        return $this->belongsTo(self::class, 'parent_bonus_id');
+        return $this->belongsTo(get_class($this), 'parent_bonus_id');
     }
 
     public function bonusStatus()
@@ -81,7 +81,7 @@ class Bonus extends Model
 
     public function childBonuses()
     {
-        return $this->hasMany(self::class, 'parent_bonus_id');
+        return $this->hasMany(get_class($this), 'parent_bonus_id');
     }
 
     public function cancelBonusAndChildBonuses()
