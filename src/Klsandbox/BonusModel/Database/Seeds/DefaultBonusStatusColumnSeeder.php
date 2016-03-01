@@ -11,7 +11,9 @@ class DefaultBonusStatusColumnSeeder extends Seeder {
 
     public function run() {
     	$active_id = BonusStatus::Active()->id;
-    	foreach (Bonus::forSite()->get() as $bonus)
+
+		$bonusModel = config('bonus.bonus_model');
+    	foreach ($bonusModel::forSite()->get() as $bonus)
     	{
     		$bonus->bonus_status_id = $bonus->bonus_status_id ? $bonus->bonus_status_id : $active_id;
     		$bonus->save();

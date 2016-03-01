@@ -23,19 +23,20 @@ class BonusTypeBonusPayoutOptionTableSeeder extends Seeder {
     }
     
     public function runForSite($siteId) {
-        BonusTypeBonusPayoutOption::create(array(
-            'type_id' => BonusType::RestockBonus()->id,
-            'payout_id' => BonusPayout::RestockBonusPayoutGoldOption()->id,
-        ));
-
+//        BonusTypeBonusPayoutOption::create(array(
+//            'type_id' => BonusType::RestockBonus()->id,
+//            'payout_id' => BonusPayout::RestockBonusPayoutGoldOption()->id,
+//        ));
+//
         BonusTypeBonusPayoutOption::create(array(
             'type_id' => BonusType::RestockBonus()->id,
             'payout_id' => BonusPayout::RestockBonusPayoutCashOption()->id,
         ));
-        BonusTypeBonusPayoutOption::create(array(
-            'type_id' => BonusType::IntroducerBonus()->id,
-            'payout_id' => BonusPayout::IntroducerBonusPayoutGoldOption()->id,
-        ));
+
+//        BonusTypeBonusPayoutOption::create(array(
+//            'type_id' => BonusType::IntroducerBonus()->id,
+//            'payout_id' => BonusPayout::IntroducerBonusPayoutGoldOption()->id,
+//        ));
 
         BonusTypeBonusPayoutOption::create(array(
             'type_id' => BonusType::IntroducerBonus()->id,
