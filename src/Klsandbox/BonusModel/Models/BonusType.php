@@ -29,17 +29,17 @@ class BonusType extends Model
 
     public static function IntroducerBonus()
     {
-        return BonusType::firstByAttributes(['key' => 'introducer-bonus', 'site_id' => Site::id()]);
+        return BonusType::where(['key' => 'introducer-bonus', 'site_id' => Site::id()])->first();
     }
 
     public static function RestockBonus()
     {
-        return BonusType::firstByAttributes(['key' => 'restock-bonus', 'site_id' => Site::id()]);
+        return BonusType::where(['key' => 'restock-bonus', 'site_id' => Site::id()])->first();
     }
 
     public static function ReferralRestockBonus()
     {
-        return BonusType::firstByAttributes(['key' => 'referral-restock-bonus', 'site_id' => Site::id()]);
+        return BonusType::where(['key' => 'referral-restock-bonus', 'site_id' => Site::id()])->first();
     }
 
     public function bonusTypeBonusPayoutOptions()

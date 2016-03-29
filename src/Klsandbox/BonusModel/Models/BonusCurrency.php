@@ -25,17 +25,17 @@ class BonusCurrency extends Model
 
     public static function CashId()
     {
-        return BonusCurrency::firstByAttributes(['key' => 'cash'])->id;
+        return BonusCurrency::where(['key' => 'cash'])->first()->id;
     }
 
     public static function GoldId()
     {
-        return BonusCurrency::firstByAttributes(['key' => 'gold'])->id;
+        return BonusCurrency::where(['key' => 'gold'])->first()->id;
     }
 
     public static function BonusNotChosen()
     {
-        return BonusCurrency::firstByAttributes(['key' => 'bonus-not-chosen']);
+        return BonusCurrency::where(['key' => 'bonus-not-chosen'])->first();
     }
 
 }

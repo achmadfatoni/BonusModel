@@ -24,11 +24,11 @@ class BonusStatus extends Model
 
     public static function Active()
     {
-        return BonusStatus::firstByAttributes(['name' => 'Active']);
+        return BonusStatus::where(['name' => 'Active'])->first();
     }
 
     public static function Cancelled()
     {
-        return BonusStatus::firstByAttributes(['name' => 'Cancelled']);
+        return BonusStatus::where(['name' => 'Cancelled'])->first();
     }
 }

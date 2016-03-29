@@ -42,37 +42,37 @@ class BonusPayout extends Model
 
     public static function IntroducerBonusPayoutGoldOption()
     {
-        return BonusPayout::firstByAttributes(['key' => 'introducer-bonus-gold-option', 'site_id' => Site::id()]);
+        return BonusPayout::where(['key' => 'introducer-bonus-gold-option', 'site_id' => Site::id()])->first();
     }
 
     public static function IntroducerBonusPayoutCashOption()
     {
-        return BonusPayout::firstByAttributes(['key' => 'introducer-bonus-cash-option', 'site_id' => Site::id()]);
+        return BonusPayout::where(['key' => 'introducer-bonus-cash-option', 'site_id' => Site::id()])->first();
     }
 
     public static function RestockBonusPayoutGoldOption()
     {
-        return BonusPayout::firstByAttributes(['key' => 'restock-bonus-gold-option', 'site_id' => Site::id()]);
+        return BonusPayout::where(['key' => 'restock-bonus-gold-option', 'site_id' => Site::id()])->first();
     }
 
     public static function RestockBonusPayoutCashOption()
     {
-        return BonusPayout::firstByAttributes(['key' => 'restock-bonus-cash-option', 'site_id' => Site::id()]);
+        return BonusPayout::where(['key' => 'restock-bonus-cash-option', 'site_id' => Site::id()])->first();
     }
 
     public static function RestockBonusPayoutFirstItem()
     {
-        return BonusPayout::firstByAttributes(['key' => 'restock-bonus-first-item', 'site_id' => Site::id()]);
+        return BonusPayout::where(['key' => 'restock-bonus-first-item', 'site_id' => Site::id()])->first();
     }
 
     public static function ReferralRestockFullBonus()
     {
-        return BonusPayout::firstByAttributes(['key' => 'referral-restock-full-bonus', 'site_id' => Site::id()]);
+        return BonusPayout::where(['key' => 'referral-restock-full-bonus', 'site_id' => Site::id()])->first();
     }
 
     public static function ReferralRestockPartialBonus()
     {
-        return BonusPayout::firstByAttributes(['key' => 'referral-restock-partial-bonus', 'site_id' => Site::id()]);
+        return BonusPayout::where(['key' => 'referral-restock-partial-bonus', 'site_id' => Site::id()])->first();
     }
 
 }
