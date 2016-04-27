@@ -2,12 +2,10 @@
 
 namespace Klsandbox\BonusModel\Services;
 
-use App;
-
 class BonusCommand
 {
     public $user;
-    public $order;
+    public $orderItem;
     public $orderPair;
     public $name;
 

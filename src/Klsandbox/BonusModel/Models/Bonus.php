@@ -47,7 +47,7 @@ abstract class Bonus extends Model
 
     use \Klsandbox\SiteModel\SiteExtensions;
 
-    protected $fillable = ['created_at', 'updated_at', 'workflow_status', 'bonus_payout_id', 'bonus_type_id', 'awarded_by_user_id', 'awarded_to_user_id', 'order_id', 'parent_bonus_id'];
+    protected $fillable = ['created_at', 'updated_at', 'workflow_status', 'bonus_payout_id', 'bonus_type_id', 'awarded_by_user_id', 'awarded_to_user_id', 'order_id', 'order_item_id', 'parent_bonus_id'];
 
     public function bonusPayout()
     {
@@ -62,6 +62,11 @@ abstract class Bonus extends Model
     public function order()
     {
         return $this->belongsTo(\Klsandbox\OrderModel\Models\Order::class);
+    }
+
+    public function orderItem()
+    {
+        return $this->belongsTo(\Klsandbox\OrderModel\Models\OrderItem::class);
     }
 
     public function parentBonus()
