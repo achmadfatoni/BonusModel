@@ -1,6 +1,7 @@
 <?php namespace Klsandbox\BonusModel;
 
 use Illuminate\Support\ServiceProvider;
+use Klsandbox\SiteConfig\Services\SiteConfig;
 
 class BonusModelServiceProvider extends ServiceProvider {
 
@@ -39,6 +40,10 @@ class BonusModelServiceProvider extends ServiceProvider {
 		$this->publishes([
 			__DIR__ . '/../../../config/' => config_path()
 		], 'config');
+
+		SiteConfig::macro('has_bonus', function () {
+			return config('bonus') != null;
+		});
 
 		\Blade::extend(function ($view, $compiler) {
 			$pattern = "/(?<!\w)(\s*)@blink\(\s*(.*?)\)/";
