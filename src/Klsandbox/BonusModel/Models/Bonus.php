@@ -103,4 +103,14 @@ abstract class Bonus extends Model
             $child->save();
         }
     }
+
+    public function info()
+    {
+        return "id:$this->id status:{$this->bonusStatus->name} type:{$this->bonusType->friendly_name} payout:{$this->bonusPayout->key}";
+    }
+
+    public static function infoMap($bonuses)
+    {
+        return $bonuses->map(function ($e) {return $e->info();});
+    }
 }
