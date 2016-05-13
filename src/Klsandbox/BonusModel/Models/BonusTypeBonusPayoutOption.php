@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusTypeBonusPayoutOption whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusTypeBonusPayoutOption wherePayoutId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusTypeBonusPayoutOption whereTypeId($value)
+ * @mixin \Eloquent
  */
 class BonusTypeBonusPayoutOption extends Model
 {

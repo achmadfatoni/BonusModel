@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusType whereKey($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusType whereFriendlyName($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusType whereDescription($value)
+ * @mixin \Eloquent
  */
 class BonusType extends Model
 {

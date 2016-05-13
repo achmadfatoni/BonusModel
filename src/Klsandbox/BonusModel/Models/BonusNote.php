@@ -11,6 +11,14 @@ use Klsandbox\SiteModel\SiteExtensions;
  * @property \Carbon\Carbon $updated_at
  * @property string $notes
  * @property integer $bonus_id
+ * @property integer $site_id
+ * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusNote whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusNote whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusNote whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusNote whereNotes($value)
+ * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusNote whereBonusId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusNote whereSiteId($value)
+ * @mixin \Eloquent
  */
 class BonusNote extends Model {
 

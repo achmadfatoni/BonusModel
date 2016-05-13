@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusCurrency whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusCurrency whereKey($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusCurrency whereFriendlyName($value)
+ * @mixin \Eloquent
  */
 class BonusCurrency extends Model
 {

@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusStatus whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusStatus whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusStatus whereName($value)
+ * @mixin \Eloquent
  */
 class BonusStatus extends Model
 {

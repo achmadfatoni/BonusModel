@@ -31,6 +31,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereBonusCurrencyId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereCurrencyAmount($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereHidden($value)
+ * @mixin \Eloquent
  */
 class BonusPayout extends Model
 {
