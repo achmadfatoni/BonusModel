@@ -71,6 +71,7 @@ class BonusPayout extends Model
         return BonusPayout::where(['key' => 'referral-restock-full-bonus', 'site_id' => Site::id()])->first();
     }
 
+    // TODO: Remove once there are no more partials in DB
     public static function ReferralRestockPartialBonus()
     {
         return BonusPayout::where(['key' => 'referral-restock-partial-bonus', 'site_id' => Site::id()])->first();

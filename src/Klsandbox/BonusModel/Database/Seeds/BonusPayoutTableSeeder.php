@@ -81,16 +81,6 @@ class BonusPayoutTableSeeder extends Seeder {
             'bonus_currency_id' => BonusCurrency::CashId(),
             'currency_amount' => 80,
         ));
-
-        BonusPayout::create(array(
-            'key' => 'referral-restock-partial-bonus',
-            'friendly_name' => 'Referral Restock Partial Bonus',
-            'payout' => '20% of RM 80',
-            'description' => 'This is the amount paid to someone when their referral restock meets the target, but they dont meet the minimum restocking requirements.',
-            'hidden' => false,
-            'bonus_currency_id' => BonusCurrency::CashId(),
-            'currency_amount' => 16,
-        ));
     }
 
 }
