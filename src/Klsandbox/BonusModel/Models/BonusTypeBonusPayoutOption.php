@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $updated_at
  * @property integer $payout_id
  * @property integer $type_id
+ *
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusTypeBonusPayoutOption whereSiteId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusTypeBonusPayoutOption whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusTypeBonusPayoutOption whereCreatedAt($value)
@@ -25,7 +26,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BonusTypeBonusPayoutOption extends Model
 {
-
     //
     protected $fillable = ['payout_id', 'type_id'];
 
@@ -38,5 +38,4 @@ class BonusTypeBonusPayoutOption extends Model
     {
         return $this->belongsTo(BonusType::class, 'type_id');
     }
-
 }

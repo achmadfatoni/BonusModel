@@ -2,26 +2,27 @@
 
 namespace Klsandbox\BonusModel\Database\Seeds;
 
-
 use Illuminate\Database\Seeder;
 use Klsandbox\BonusModel\Models\BonusPayout;
 use Klsandbox\SiteModel\Site;
 use Klsandbox\BonusModel\Models\BonusCurrency;
 
-class BonusPayoutTableSeeder extends Seeder {
-
-    public function run() {
+class BonusPayoutTableSeeder extends Seeder
+{
+    public function run()
+    {
         if (BonusPayout::count() > 0) {
             return;
         }
-        
+
         foreach (Site::all() as $site) {
             Site::setSite($site);
             $this->runForSite($site->id);
         }
     }
-    
-    public function runForSite($site) {
+
+    public function runForSite($site)
+    {
         BonusPayout::create(array(
             'key' => 'introducer-bonus-gold-option',
             'friendly_name' => 'Introducer Bonus Gold Option',
@@ -82,5 +83,4 @@ class BonusPayoutTableSeeder extends Seeder {
             'currency_amount' => 80,
         ));
     }
-
 }

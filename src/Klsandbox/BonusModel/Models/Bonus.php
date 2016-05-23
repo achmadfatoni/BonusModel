@@ -22,6 +22,7 @@ use Carbon\Carbon;
  * @property integer $awarded_by_user_id
  * @property integer $awarded_to_user_id
  * @property integer $order_id
+ *
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\Bonus whereSiteId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\Bonus whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\Bonus whereCreatedAt($value)
@@ -32,19 +33,21 @@ use Carbon\Carbon;
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\Bonus whereAwardedByUserId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\Bonus whereAwardedToUserId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\Bonus whereOrderId($value)
+ *
  * @property integer $bonus_status_id
  * @property string $canceled_at
  * @property integer $parent_bonus_id
  * @property-read \Klsandbox\BonusModel\Models\BonusStatus $bonusStatus
  * @property-read \Illuminate\Database\Eloquent\Collection|\Klsandbox\BonusModel\Models\Bonus[] $childBonuses
+ *
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\Bonus whereBonusStatusId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\Bonus whereCanceledAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\Bonus whereParentBonusId($value)
+ *
  * @property-read \Klsandbox\BonusModel\Models\Bonus $parentBonus
  */
 abstract class Bonus extends Model
 {
-
     use \Klsandbox\SiteModel\SiteExtensions;
 
     protected $fillable = ['created_at', 'updated_at', 'workflow_status', 'bonus_payout_id', 'bonus_type_id', 'awarded_by_user_id', 'awarded_to_user_id', 'order_id', 'order_item_id', 'parent_bonus_id'];

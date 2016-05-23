@@ -7,10 +7,9 @@ use Carbon\Carbon;
 
 interface BonusManager
 {
-    function resolveBonus(OrderItem $orderItem);
+    public function resolveBonus(OrderItem $orderItem);
 
-    function resolveBonusCommandsForOrderItemUserDetails($order_item_id, Carbon $created_at, OrderItem $orderItem, $user);
+    public function resolveBonusCommandsForOrderItemUserDetails($order_item_id, Carbon $created_at, OrderItem $orderItem, $user);
 
-    function getExpiry(BonusCommand $bonusCommand);
-
+    public function getExpiry(BonusCommand $bonusCommand);
 }

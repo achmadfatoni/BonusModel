@@ -27,15 +27,17 @@ class BonusCommand
      * @param OrderItem $orderItem
      * @param $user
      * @param $orderItemPair
+     *
      * @return BonusCommand
      */
     public static function createPayPairRestockBonus(BonusManager $bonusManager, OrderItem $orderItem, $user, $orderItemPair)
     {
-        $command = new BonusCommand($bonusManager);
+        $command = new self($bonusManager);
         $command->user = $user;
         $command->orderItem = $orderItem;
         $command->orderPair = $orderItemPair;
         $command->name = 'payPairRestockBonus';
+
         return $command;
     }
 
@@ -43,14 +45,16 @@ class BonusCommand
      * @param OrderItem $orderItem
      * @param $user
      * @param $bonusManager
+     *
      * @return BonusCommand
      */
     public static function createPayFullReferralRestockBonusCommand(BonusManager $bonusManager, OrderItem $orderItem, $user)
     {
-        $command = new BonusCommand($bonusManager);
+        $command = new self($bonusManager);
         $command->user = $user;
         $command->orderItem = $orderItem;
         $command->name = 'payFullReferralRestockBonus';
+
         return $command;
     }
 }

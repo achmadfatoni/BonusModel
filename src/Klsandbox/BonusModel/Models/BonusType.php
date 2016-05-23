@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $key
  * @property string $friendly_name
  * @property string $description
+ *
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusType whereSiteId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusType whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusType whereCreatedAt($value)
@@ -27,25 +28,23 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BonusType extends Model
 {
-
     public static function IntroducerBonus()
     {
-        return BonusType::where(['key' => 'introducer-bonus', 'site_id' => Site::id()])->first();
+        return self::where(['key' => 'introducer-bonus', 'site_id' => Site::id()])->first();
     }
 
     public static function RestockBonus()
     {
-        return BonusType::where(['key' => 'restock-bonus', 'site_id' => Site::id()])->first();
+        return self::where(['key' => 'restock-bonus', 'site_id' => Site::id()])->first();
     }
 
     public static function ReferralRestockBonus()
     {
-        return BonusType::where(['key' => 'referral-restock-bonus', 'site_id' => Site::id()])->first();
+        return self::where(['key' => 'referral-restock-bonus', 'site_id' => Site::id()])->first();
     }
 
     public function bonusTypeBonusPayoutOptions()
     {
         return $this->hasMany(BonusTypeBonusPayoutOption::class, 'type_id');
     }
-
 }

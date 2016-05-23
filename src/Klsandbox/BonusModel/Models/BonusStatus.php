@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property string $name
+ *
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusStatus whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusStatus whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusStatus whereUpdatedAt($value)
@@ -19,17 +20,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BonusStatus extends Model
 {
-
     protected $table = 'bonus_statuses';
     public $timestamps = true;
 
     public static function Active()
     {
-        return BonusStatus::where(['name' => 'Active'])->first();
+        return self::where(['name' => 'Active'])->first();
     }
 
     public static function Cancelled()
     {
-        return BonusStatus::where(['name' => 'Cancelled'])->first();
+        return self::where(['name' => 'Cancelled'])->first();
     }
 }

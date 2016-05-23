@@ -1,4 +1,6 @@
-<?php namespace Klsandbox\BonusModel\Models;
+<?php
+
+namespace Klsandbox\BonusModel\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Klsandbox\SiteModel\SiteExtensions;
@@ -12,6 +14,7 @@ use Klsandbox\SiteModel\SiteExtensions;
  * @property string $notes
  * @property integer $bonus_id
  * @property integer $site_id
+ *
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusNote whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusNote whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusNote whereUpdatedAt($value)
@@ -20,12 +23,11 @@ use Klsandbox\SiteModel\SiteExtensions;
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusNote whereSiteId($value)
  * @mixin \Eloquent
  */
-class BonusNote extends Model {
-
+class BonusNote extends Model
+{
     use SiteExtensions;
 
     protected $fillable = ['notes',  'bonus_id'];
 
-	//
-
+    //
 }

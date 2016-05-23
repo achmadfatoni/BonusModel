@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $bonus_currency_id
  * @property integer $currency_amount
  * @property boolean $hidden
+ *
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereSiteId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereCreatedAt($value)
@@ -35,7 +36,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BonusPayout extends Model
 {
-
     public function bonusCurrency()
     {
         return $this->belongsTo(BonusCurrency::class);
@@ -43,38 +43,37 @@ class BonusPayout extends Model
 
     public static function IntroducerBonusPayoutGoldOption()
     {
-        return BonusPayout::where(['key' => 'introducer-bonus-gold-option', 'site_id' => Site::id()])->first();
+        return self::where(['key' => 'introducer-bonus-gold-option', 'site_id' => Site::id()])->first();
     }
 
     public static function IntroducerBonusPayoutCashOption()
     {
-        return BonusPayout::where(['key' => 'introducer-bonus-cash-option', 'site_id' => Site::id()])->first();
+        return self::where(['key' => 'introducer-bonus-cash-option', 'site_id' => Site::id()])->first();
     }
 
     public static function RestockBonusPayoutGoldOption()
     {
-        return BonusPayout::where(['key' => 'restock-bonus-gold-option', 'site_id' => Site::id()])->first();
+        return self::where(['key' => 'restock-bonus-gold-option', 'site_id' => Site::id()])->first();
     }
 
     public static function RestockBonusPayoutCashOption()
     {
-        return BonusPayout::where(['key' => 'restock-bonus-cash-option', 'site_id' => Site::id()])->first();
+        return self::where(['key' => 'restock-bonus-cash-option', 'site_id' => Site::id()])->first();
     }
 
     public static function RestockBonusPayoutFirstItem()
     {
-        return BonusPayout::where(['key' => 'restock-bonus-first-item', 'site_id' => Site::id()])->first();
+        return self::where(['key' => 'restock-bonus-first-item', 'site_id' => Site::id()])->first();
     }
 
     public static function ReferralRestockFullBonus()
     {
-        return BonusPayout::where(['key' => 'referral-restock-full-bonus', 'site_id' => Site::id()])->first();
+        return self::where(['key' => 'referral-restock-full-bonus', 'site_id' => Site::id()])->first();
     }
 
     // TODO: Remove once there are no more partials in DB
     public static function ReferralRestockPartialBonus()
     {
-        return BonusPayout::where(['key' => 'referral-restock-partial-bonus', 'site_id' => Site::id()])->first();
+        return self::where(['key' => 'referral-restock-partial-bonus', 'site_id' => Site::id()])->first();
     }
-
 }
