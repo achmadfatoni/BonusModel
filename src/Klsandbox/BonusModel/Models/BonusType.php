@@ -4,6 +4,7 @@ namespace Klsandbox\BonusModel\Models;
 
 use Klsandbox\SiteModel\Site;
 use Illuminate\Database\Eloquent\Model;
+use Klsandbox\SiteModel\SiteExtensions;
 
 /**
  * Klsandbox\BonusModel\Models\BonusType
@@ -28,19 +29,47 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BonusType extends Model
 {
+    use SiteExtensions;
+    
+    private static $cache;
+
+    public static function findByName($name)
+    {
+        $name = strtolower($name);
+
+        if (!self::$cache) {
+            self::$cache = [];
+        }
+
+        if (!key_exists(Site::id(), self::$cache)) {
+            self::$cache[Site::id()] = [];
+        }
+
+        if (key_exists($name, self::$cache[Site::id()])) {
+            return self::$cache[Site::id()][$name];
+        }
+
+        $item = self::forSite()->where(['key' => $name])->first();
+        assert($item, $name);
+
+        self::$cache[Site::id()][$name] = $item;
+
+        return $item;
+    }
+
     public static function IntroducerBonus()
     {
-        return self::where(['key' => 'introducer-bonus', 'site_id' => Site::id()])->first();
+        return self::findByName('introducer-bonus');
     }
 
     public static function RestockBonus()
     {
-        return self::where(['key' => 'restock-bonus', 'site_id' => Site::id()])->first();
+        return self::findByName('restock-bonus');
     }
 
     public static function ReferralRestockBonus()
     {
-        return self::where(['key' => 'referral-restock-bonus', 'site_id' => Site::id()])->first();
+        return self::findByName('referral-restock-bonus');
     }
 
     public function bonusTypeBonusPayoutOptions()

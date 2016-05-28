@@ -4,6 +4,7 @@ namespace Klsandbox\BonusModel\Models;
 
 use Klsandbox\SiteModel\Site;
 use Illuminate\Database\Eloquent\Model;
+use Klsandbox\SiteModel\SiteExtensions;
 
 /**
  * Klsandbox\BonusModel\Models\BonusPayout
@@ -36,6 +37,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BonusPayout extends Model
 {
+    use SiteExtensions;
+
     public function bonusCurrency()
     {
         return $this->belongsTo(BonusCurrency::class);
@@ -75,5 +78,11 @@ class BonusPayout extends Model
     public static function ReferralRestockPartialBonus()
     {
         return self::where(['key' => 'referral-restock-partial-bonus', 'site_id' => Site::id()])->first();
+    }
+
+    public static function findByName($name)
+    {
+        return self::forSite()->where('friendly_name', $name)
+            ->first();
     }
 }
