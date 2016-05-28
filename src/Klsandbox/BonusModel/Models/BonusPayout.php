@@ -39,6 +39,8 @@ class BonusPayout extends Model
 {
     use SiteExtensions;
 
+    protected $fillable = ['friendly_name', 'key', 'description', 'payout', 'bonus_currency_id', 'currency_amount', 'hidden'];
+
     public function bonusCurrency()
     {
         return $this->belongsTo(BonusCurrency::class);

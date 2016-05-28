@@ -2,6 +2,7 @@
 
 namespace Klsandbox\BonusModel\Models;
 
+use App\Models\Organization;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
@@ -76,6 +77,11 @@ abstract class Bonus extends Model
     public function order()
     {
         return $this->belongsTo(\Klsandbox\OrderModel\Models\Order::class);
+    }
+
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class, 'awarded_by_organization_id');
     }
 
     public function orderItem()
