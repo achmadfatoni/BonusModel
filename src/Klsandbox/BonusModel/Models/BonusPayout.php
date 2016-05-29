@@ -2,6 +2,7 @@
 
 namespace Klsandbox\BonusModel\Models;
 
+use App\Models\BonusCategory;
 use Klsandbox\SiteModel\Site;
 use Illuminate\Database\Eloquent\Model;
 use Klsandbox\SiteModel\SiteExtensions;
@@ -44,6 +45,34 @@ class BonusPayout extends Model
     public function bonusCurrency()
     {
         return $this->belongsTo(BonusCurrency::class);
+    }
+
+    public function isUsed()
+    {
+        return $this->bonusCategoryRestockNew->count()
+            || $this->bonusCategoryRestockOld->count()
+            || $this->bonusCategoryIntroducer->count()
+            || $this->bonusCategoryReferral->count();
+    }
+
+    public function bonusCategoryRestockNew()
+    {
+        return $this->hasMany(BonusCategory::class, 'restock_new_bonus_payout_id');
+    }
+
+    public function bonusCategoryRestockOld()
+    {
+        return $this->hasMany(BonusCategory::class, 'restock_old_bonus_payout_id');
+    }
+
+    public function bonusCategoryIntroducer()
+    {
+        return $this->hasMany(BonusCategory::class, 'introducer_bonus_payout_id');
+    }
+
+    public function bonusCategoryReferral()
+    {
+        return $this->hasMany(BonusCategory::class, 'referral_bonus_payout_id');
     }
 
     public static function IntroducerBonusPayoutGoldOption()
