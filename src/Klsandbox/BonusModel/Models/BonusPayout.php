@@ -84,7 +84,11 @@ class BonusPayout extends Model
 
     public static function findByName($name)
     {
-        return self::forSite()->where('friendly_name', $name)
+        $bonus = self::forSite()->where('friendly_name', $name)
             ->first();
+
+        assert($bonus);
+
+        return $bonus;
     }
 }
