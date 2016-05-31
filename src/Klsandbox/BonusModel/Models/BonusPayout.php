@@ -35,6 +35,11 @@ use Klsandbox\SiteModel\SiteExtensions;
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereCurrencyAmount($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereHidden($value)
  * @mixin \Eloquent
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BonusCategory[] $bonusCategoryRestockNew
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BonusCategory[] $bonusCategoryRestockOld
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BonusCategory[] $bonusCategoryIntroducer
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BonusCategory[] $bonusCategoryReferral
  */
 class BonusPayout extends Model
 {

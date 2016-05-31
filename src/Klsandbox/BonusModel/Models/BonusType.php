@@ -30,7 +30,7 @@ use Klsandbox\SiteModel\SiteExtensions;
 class BonusType extends Model
 {
     use SiteExtensions;
-    
+
     private static $cache;
 
     public static function findByName($name)
