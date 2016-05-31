@@ -22,7 +22,6 @@ use Klsandbox\SiteModel\SiteExtensions;
  * @property string $bonus_currency_id
  * @property integer $currency_amount
  * @property boolean $hidden
- *
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereSiteId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereCreatedAt($value)
@@ -35,7 +34,6 @@ use Klsandbox\SiteModel\SiteExtensions;
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereCurrencyAmount($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusPayout whereHidden($value)
  * @mixin \Eloquent
- *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BonusCategory[] $bonusCategoryRestockNew
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BonusCategory[] $bonusCategoryRestockOld
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BonusCategory[] $bonusCategoryIntroducer

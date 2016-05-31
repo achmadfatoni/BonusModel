@@ -17,7 +17,6 @@ use Klsandbox\SiteModel\SiteExtensions;
  * @property string $key
  * @property string $friendly_name
  * @property string $description
- *
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusType whereSiteId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusType whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusType whereCreatedAt($value)

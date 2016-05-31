@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $updated_at
  * @property string $key
  * @property string $friendly_name
- *
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusCurrency whereSiteId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusCurrency whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\Klsandbox\BonusModel\Models\BonusCurrency whereCreatedAt($value)
