@@ -44,6 +44,23 @@ class BonusCommand
     /**
      * @param OrderItem $orderItem
      * @param $user
+     * @param $orderItemPair
+     *
+     * @return BonusCommand
+     */
+    public static function createPayRestockBonus(BonusManager $bonusManager, OrderItem $orderItem, $user)
+    {
+        $command = new self($bonusManager);
+        $command->user = $user;
+        $command->orderItem = $orderItem;
+        $command->name = 'payRestockBonus';
+
+        return $command;
+    }
+
+    /**
+     * @param OrderItem $orderItem
+     * @param $user
      * @param $bonusManager
      *
      * @return BonusCommand

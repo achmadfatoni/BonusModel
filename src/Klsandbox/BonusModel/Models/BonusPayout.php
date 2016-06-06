@@ -60,12 +60,12 @@ class BonusPayout extends Model
 
     public function bonusCategoryRestockNew()
     {
-        return $this->hasMany(BonusCategory::class, 'restock_new_bonus_payout_id');
+        return $this->hasMany(BonusCategory::class, 'restock_pair_new_bonus_payout_id');
     }
 
     public function bonusCategoryRestockOld()
     {
-        return $this->hasMany(BonusCategory::class, 'restock_old_bonus_payout_id');
+        return $this->hasMany(BonusCategory::class, 'restock_pair_old_bonus_payout_id');
     }
 
     public function bonusCategoryIntroducer()
