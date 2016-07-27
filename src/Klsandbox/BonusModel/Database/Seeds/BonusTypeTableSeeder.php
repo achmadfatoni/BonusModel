@@ -4,7 +4,6 @@ namespace Klsandbox\BonusModel\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 use Klsandbox\BonusModel\Models\BonusType;
-use Klsandbox\SiteModel\Site;
 
 class BonusTypeTableSeeder extends Seeder
 {
@@ -13,15 +12,6 @@ class BonusTypeTableSeeder extends Seeder
         if (BonusType::count() > 0) {
             return;
         }
-
-        foreach (Site::all() as $site) {
-            Site::setSite($site);
-            $this->runForSite($site->id);
-        }
-    }
-
-    public function runForSite($siteId)
-    {
         BonusType::create(array(
             'key' => 'introducer-bonus',
             'friendly_name' => 'Introducer Bonus',

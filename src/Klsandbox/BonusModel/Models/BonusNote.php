@@ -3,7 +3,6 @@
 namespace Klsandbox\BonusModel\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Klsandbox\SiteModel\SiteExtensions;
 
 /**
  * Klsandbox\BonusModel\Models\BonusNote
@@ -24,8 +23,6 @@ use Klsandbox\SiteModel\SiteExtensions;
  */
 class BonusNote extends Model
 {
-    use SiteExtensions;
-
     protected $fillable = ['notes',  'bonus_id'];
 
     //

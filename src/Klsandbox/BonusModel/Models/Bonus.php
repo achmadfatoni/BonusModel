@@ -49,8 +49,6 @@ use Carbon\Carbon;
  */
 abstract class Bonus extends Model
 {
-    use \Klsandbox\SiteModel\SiteExtensions;
-
     protected $fillable = [
         'created_at',
         'updated_at',
