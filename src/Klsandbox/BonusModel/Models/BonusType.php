@@ -4,8 +4,6 @@ namespace Klsandbox\BonusModel\Models;
 
 use Klsandbox\SiteModel\Site;
 use Illuminate\Database\Eloquent\Model;
-use Klsandbox\SiteModel\SiteExtensions;
-
 /**
  * Klsandbox\BonusModel\Models\BonusType
  *
@@ -28,8 +26,6 @@ use Klsandbox\SiteModel\SiteExtensions;
  */
 class BonusType extends Model
 {
-    use SiteExtensions;
-
     private static $cache;
 
     public static function findByName($name)
@@ -48,7 +44,7 @@ class BonusType extends Model
             return self::$cache[Site::id()][$name];
         }
 
-        $item = self::forSite()->where(['key' => $name])->first();
+        $item = self::where(['key' => $name])->first();
         assert($item, $name);
 
         self::$cache[Site::id()][$name] = $item;

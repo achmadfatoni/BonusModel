@@ -4,7 +4,6 @@ namespace Klsandbox\BonusModel\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 use Klsandbox\BonusModel\Models\BonusCurrency;
-use Klsandbox\SiteModel\Site;
 
 class BonusCurrencyTableSeeder extends Seeder
 {
@@ -13,15 +12,6 @@ class BonusCurrencyTableSeeder extends Seeder
         if (BonusCurrency::count() > 0) {
             return;
         }
-
-        foreach (Site::all() as $site) {
-            Site::setSite($site);
-            $this->runForSite($site->id);
-        }
-    }
-
-    public function runForSite($siteId)
-    {
         BonusCurrency::create(array(
             'key' => 'cash',
             'friendly_name' => 'Cash',
