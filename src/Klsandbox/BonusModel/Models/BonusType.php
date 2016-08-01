@@ -2,7 +2,6 @@
 
 namespace Klsandbox\BonusModel\Models;
 
-use Klsandbox\SiteModel\Site;
 use Illuminate\Database\Eloquent\Model;
 /**
  * Klsandbox\BonusModel\Models\BonusType
@@ -36,18 +35,14 @@ class BonusType extends Model
             self::$cache = [];
         }
 
-        if (!key_exists(Site::id(), self::$cache)) {
-            self::$cache[Site::id()] = [];
-        }
-
-        if (key_exists($name, self::$cache[Site::id()])) {
-            return self::$cache[Site::id()][$name];
+        if (key_exists($name, self::$cache)) {
+            return self::$cache[$name];
         }
 
         $item = self::where(['key' => $name])->first();
         assert($item, $name);
 
-        self::$cache[Site::id()][$name] = $item;
+        self::$cache[$name] = $item;
 
         return $item;
     }
