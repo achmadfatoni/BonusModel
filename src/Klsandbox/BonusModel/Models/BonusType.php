@@ -3,6 +3,7 @@
 namespace Klsandbox\BonusModel\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
  * Klsandbox\BonusModel\Models\BonusType
  *

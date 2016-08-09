@@ -4,6 +4,7 @@ namespace Klsandbox\BonusModel\Models;
 
 use App\Models\BonusCategory;
 use Illuminate\Database\Eloquent\Model;
+
 /**
  * Klsandbox\BonusModel\Models\BonusPayout
  *
